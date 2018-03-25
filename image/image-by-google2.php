@@ -98,3 +98,4 @@
     <div id="content">Loading...</div>
   </body>
 </html>
+<!-- https://www.codeproject.com/Questions/741130/Using-google-image-search-API -->
