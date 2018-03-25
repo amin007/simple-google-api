@@ -1,7 +1,7 @@
 <?php
-$url = $_REQUEST['url'];
+$url = $_GET['url'];
 
-if(empty($_REQUEST['raw'])){
+if(empty($_GET['raw'])){
 	$raw = false;
 }
 else{
@@ -31,7 +31,7 @@ function fetch_google($u, $raw, $terms="sample search",$numpages=1,$user_agent='
     for($i=0;$i<=$numpages;$i++)
     {
         $ch = curl_init();
-        $url="http://www.google.com/searchbyimage?hl=en&image_url=".urlencode($u);
+        //$url="http://www.google.com/searchbyimage?hl=en&image_url=".urlencode($u);
         curl_setopt ($ch, CURLOPT_URL, $url);
         curl_setopt ($ch, CURLOPT_USERAGENT, $user_agent);
         curl_setopt ($ch, CURLOPT_HEADER, 0);
