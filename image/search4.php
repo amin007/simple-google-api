@@ -72,11 +72,29 @@ class GoogleResults
 		# we can loop through the results by using `getItems()`
 		// echo '<pre>$results=><hr>';
 		foreach($results->getItems() as $k=>$item)
-		{	//var_dump($item); //print_r($item);
-			$items[] = $item;
+		{
+			$this->papar($k, $item); $items[] = $item;
 		} //echo '</pre>';
 
 		return $items;
+	}
+#-----------------------------------------------------------------------------------------------------------------------------#
+	public function papar($k, $item)
+	{	//var_dump($item); //print_r($item);
+		echo '$item->getCacheId(' . $k . '):' . $item->getCacheId();
+		echo '<br>$item->getDisplayLink(' . $k . '):' . $item->getDisplayLink();
+		echo '<br>$item->getFileFormat(' . $k . '):' . $item->getFileFormat();
+		echo '<br>$item->getFormattedUrl(' . $k . '):' . $item->getFormattedUrl();
+		echo '<br>$item->getHtmlFormattedUrl(' . $k . '):' . $item->getHtmlFormattedUrl();
+		echo '<br>$item->getHtmlTitle(' . $k . '):' . $item->getHtmlTitle();
+		echo '<br>$item->getImage(' . $k . '):' . $item->getImage();
+		echo '<br>$item->getKind(' . $k . '):' . $item->getKind();
+		echo '<br>json_encode($item->getLabels(' . $k . ')):' . json_encode($item->getLabels());
+		echo '<br>$item->getLink(' . $k . '):' .  $item->getLink();
+		echo '<br>$item->getMime(' . $k . '):' . $item->getMime();
+		echo '<br>json_encode($item->getPagemap(' . $k . ')):' . json_encode($item->getPagemap());
+		echo '<br>$item->getSnippet(' . $k . '):' . $item->getSnippet();
+		echo '<br>$item->getTitle(' . $k . '):' . $item->getTitle() . '<hr>';		
 	}
 #-----------------------------------------------------------------------------------------------------------------------------#
 }
