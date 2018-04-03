@@ -1,6 +1,6 @@
 <?php
 
-include_once '../google-api-php-client-2.2.1/vendor/autoload.php';
+include_once '../../google-api-php-client-2.2.1/vendor/autoload.php';
 
 /**
  * Retrieves a simple set of google results for a given plant id.
@@ -10,7 +10,7 @@ class GoogleResults
 { 
 #-----------------------------------------------------------------------------------------------------------------------------#
 	# Create one or more API keys at https://console.developers.google.com/apis/credentials
-	const GCSE_API_KEY = "AIzaSyD1KORf2kRrS7r6n5rT4nwL9QBGD8QCAgk";
+	const GCSE_API_KEY = 'AIzaSyD1KORf2kRrS7r6n5rT4nwL9QBGD8QCAgk';
 
 	/* The search engine id is specific to each "custom search engine"
 	* you have configured at https://cse.google.com/cse/all     
@@ -20,10 +20,10 @@ class GoogleResults
 
 	* If you fail to enable the Custom Search API before you try to execute a search
 	* the exception that is thrown will indicate this.  */
-	const GCSE_SEARCH_ENGINE_ID = "016724384925099384635:s9jmb6xrf-w";
+	const GCSE_SEARCH_ENGINE_ID = '016724384925099384635:s9jmb6xrf-w';
 
-	private $service; // Holds the GoogleService for reuse
-	private $optParamSEID; // Holds the optParam for our search engine id
+	private $service; # Holds the GoogleService for reuse
+	private $optParamSEID; # Holds the optParam for our search engine id
 #-----------------------------------------------------------------------------------------------------------------------------#
 	/**
 	* Creates a service object for our Google Custom Search.  The API key is 
@@ -43,8 +43,7 @@ class GoogleResults
 
 		/* You must specify a custom search engine.  You can do this either by setting
 		* the element "cx" to the search engine id, or by setting the element "cref"
-		* to the public url for that search engine.
-		* For a full list of possible params see 
+		* to the public url for that search engine. For a full list of possible params see 
 		* https://github.com/google/google-api-php-client-services/blob/master/src/Google/Service/Customsearch/Resource/Cse.php //*/
 		$this->optParamSEID = array("cx"=>self::GCSE_SEARCH_ENGINE_ID);
 	}
@@ -85,4 +84,4 @@ class GoogleResults
 $searchTerm = (isset($_GET['find'])) ? $_GET['find'] : 'samsung'; # cari barang apa 
 $service = new GoogleResults();
 $items = $service->getSearchResults($searchTerm);
-echo '<pre>$results=><hr>'; print_r($items); echo '</pre>';
+echo '<pre>' . $searchTerm . ' | $results=><hr>'; print_r($items); echo '</pre>';
